@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To-Do List</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="todo-container">
+            <h1 class="title">Todo List</h1>
+
+            <form class="input-group">
+                <input
+                    type="text"
+                    placeholder="Add a new task..."
+                    class="todo-input"
+                    id="todoInput"
+                    autofocus
+                    required
+                />
+                <button class="add-btn" type="submit">Add</button>
+            </form>
+            <ul class="todo-list"></ul>
+        </div>
+
+        <div class="modalError">
+            <div class="modal-contentErr">
+                <h2>Please enter some text !!!</h2>
+                <button class="ErrBtnOk">OK</button>
+            </div>
+        </div>
+
+        <div class="modal" id="editModal">
+            <div class="modal-content">
+                <h2>Edit Task</h2>
+                <form class="editForm">
+                    <input
+                        type="text"
+                        id="editInput"
+                        class="modal-input"
+                        placeholder="Edit your task..."
+                        autofocus
+                    />
+                    <button class="save-btn" type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            document
+                .querySelector(".ErrBtnOk")
+                .addEventListener("click", () => {
+                    modalError.style.display = "none";
+                });
+
+            function openModal() {
+                document.getElementById("editModal").style.display = "flex";
+            }
+
+            window.onclick = function (event) {
+                if (event.target == modal || event.target == modalError) {
+                    document.getElementById("editModal").style.display = "none";
+                    modalError.style.display = "none";
+                }
+            };
+        </script>
+    </body>
+    <script src="script.js"></script>
+</html>
